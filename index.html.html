@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>История Кикбоксинга</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #f0f0f5;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      animation: backgroundFade 20s ease-in-out infinite alternate;
+    }
+    @keyframes backgroundFade {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    header {
+      background: #000000cc;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ff3d3d;
+      text-shadow: 0 0 12px #ff3d3daa;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      background: #1b1a27cc;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 0 30px #ff3d3d66;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+    h2 {
+      color: #ff6b6b;
+      font-size: 2rem;
+      border-bottom: 3px solid #ff3d3d;
+      padding-bottom: 8px;
+      margin-top: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      animation: slideLeft 1s ease forwards;
+      opacity: 0;
+    }
+    p {
+      line-height: 1.6;
+      font-size: 1.1rem;
+      margin-top: 15px;
+      color: #ddd;
+      animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
+    }
+    .styles {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+      animation: fadeIn 1.5s ease forwards;
+      opacity: 0;
+    }
+    .style {
+      background: #2e2c44;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 12px #ff3d3d88;
+      flex: 1 1 280px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      animation: liftUp 0.6s ease forwards;
+      opacity: 0;
+    }
+    .style:nth-child(1) { animation-delay: 1.6s; }
+    .style:nth-child(2) { animation-delay: 1.8s; }
+    .style:nth-child(3) { animation-delay: 2s; }
+
+    .style:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 25px #ff3d3dcc;
+    }
+    .style img {
+      max-width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      border: 2px solid #ff3d3d;
+      background: #444;
+      transition: transform 0.3s ease;
+    }
+    .style img:hover {
+      transform: scale(1.05);
+    }
+    img.team {
+      display: block;
+      margin: 50px auto;
+      max-width: 100%;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px #ff3d3daa;
+      border: 4px solid #ff3d3d;
+      transition: transform 0.5s ease;
+      cursor: zoom-in;
+      animation: pulse 4s ease-in-out infinite;
+    }
+    img.team:hover {
+      transform: scale(1.05);
+      animation-play-state: paused;
+    }
+    .trainers {
+      margin-top: 60px;
+      background: #2e2c44cc;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #ff3d3dbb;
+      display: flex;
+      gap: 50px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+    }
+    .trainer {
+      max-width: 220px;
+      text-align: center;
+      color: #f0f0f5;
+      transition: transform 0.3s ease;
+      cursor: default;
+      animation: liftUp 0.8s ease forwards;
+      opacity: 0;
+    }
+    .trainer:nth-child(1) { animation-delay: 2.2s; }
+    .trainer:nth-child(2) { animation-delay: 2.4s; }
+    .trainer:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 25px #ff3d3dcc;
+    }
+    .trainer img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #ff3d3d;
+      box-shadow: 0 5px 15px #ff3d3dcc;
+      background: #444;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .trainer img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px #ff3d3ddd;
+    }
+    .trainer h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.3rem;
+      text-shadow: 0 0 8px #ff3d3daa;
+    }
+    .trainer p {
+      margin: 0;
+      font-size: 1rem;
+      font-style: italic;
+      color: #ff8a8a;
+    }
+    @media(max-width: 700px) {
+      main {
+        padding: 30px 20px;
+        margin: 20px;
+      }
+      .styles {
+        flex-direction: column;
+      }
+      .style {
+        flex: 1 1 auto;
+      }
+      .trainers {
+        flex-direction: column;
+        gap: 40px;
+      }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideLeft {
+      0% { opacity: 0; transform: translateX(-30px);}
+      100% { opacity: 1; transform: translateX(0);}
+    }
+    @keyframes liftUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>История Кикбоксинга</h1>
+  </header>
+  <main>
+    <section>
+      <h2>История кикбоксинга</h2>
+      <p>
+        Кикбоксинг зародился в Японии в 1960-х годах как смесь карате и бокса, объединяя лучшие приёмы этих единоборств.
+        В 1970-80-х годах он быстро распространился в США и Европе, где стал популярным благодаря профессиональным турнирам и ярким боям.
+        Впоследствии появились различные стили и правила, такие как фулл-контакт, лоу-кик и киклайт.
+        Сегодня кикбоксинг — это признанный мировой спорт с миллионами поклонников, развивающийся и в России.
+      </p>
+    </section>
+
+    <section>
+      <h2>Виды кикбоксинга</h2>
+      <div class="styles">
+        <div class="style">
+          <h3>Full Contact</h3>
+          <img src="images/full_contact.jpg" alt="Full Contact" />
+          <p>Классический стиль с ударами в корпус и голову.</p>
+        </div>
+        <div class="style">
+          <h3>Low Kick</h3>
+          <img src="images/low_kick.jpg" alt="Low Kick" />
+          <p> раздел в кикбоксинге, разрешающий наносить удары ногами по внешней и внутренней сторонам бедра или подсекать в голеностоп.</p>
+        </div>
+        <div class="style">
+          <h3>Kicklight</h3>
+          <img src="images/light_contact.jpeg" alt="light Contact" />
+          <p>Стиль с ограниченной силой удара, хорошо подходит для новичков и любителей.</p>
+        </div>
+      </div>
+    </section>
+
+    <img src="images/team.jpg" alt="Our team" class="team" />
+
+    <section class="trainers">
+      <div class="trainer">
+        <img src="images/aleksei_isaev.jpeg" alt="Isaev Alexey Leonidovich" />
+        <h3>Isaev Alexey Leonidovich</h3>
+        <p>Главный тренер</p>
+      </div>
+      <div class="trainer">
+        <img src="images/vadim_vladimirovich.jpg" alt="Vadim Vladimirovich" />
+        <h3>Vadim Vladimirovich</h3>
+        <p>Тренер</p>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center; padding:20px; color:#aaa; font-size:0.9rem; background:#111; box-shadow: inset 0 
+    1px 5px #222;">
+    Сайт сделал Паладий Никита
+  </footer>
+</body>
+</html>
